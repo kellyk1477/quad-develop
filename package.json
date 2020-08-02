@@ -5,12 +5,11 @@
   "main": "main.js",
 
   "scripts": {
-    "start": "webpack --watch --mode=development",
+    "start": "vue-cli-service serve",
     "webpack1": "node_modules/.bin/webpack-dev-server",
     "serve": "vue-cli-service serve",
-    "build": "webpack",
-    "lint": "vue-cli-service lint",
-    "postinstall": "webpack"
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "babel-core": "^6.26.3",
