@@ -2,13 +2,15 @@
   "name": "quad-develop",
   "version": "0.1.0",
   "private": true,
+  "main": "main.js",
+
   "scripts": {
-    "start:dev": "webpack-dev-server",
-    "start": "webpack-dev-server",
+    "start": "webpack --watch --mode=development",
     "webpack1": "node_modules/.bin/webpack-dev-server",
     "serve": "vue-cli-service serve",
     "build": "webpack",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "postinstall": "webpack"
   },
   "dependencies": {
     "babel-core": "^6.26.3",
