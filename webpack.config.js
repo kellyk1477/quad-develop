@@ -52,11 +52,6 @@ module.exports = {
     ],
   },
   devtool: 'source-map',
-  devServer: {
-    contentBase: path.join(__dirname, 'public'),
-    compress: true,
-    port: 8080
-  },
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.esm.js'
