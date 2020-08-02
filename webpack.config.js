@@ -1,10 +1,12 @@
 const { VueLoaderPlugin } = require('vue-loader');
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin');
+const path = require('path');
 
 module.exports = {
   entry: './src/main.js',
   output: {
-    filename: './bundle.js',
+    path: path.resolve(__dirname, 'public'),
+    filename: 'bundle.js',
   },
   module: {
     rules: [
@@ -18,7 +20,7 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
+        test: /\.(png|svg|jpg|gif|ico)$/,
         use: [
           'file-loader',
         ],
@@ -50,6 +52,11 @@ module.exports = {
     ],
   },
   devtool: 'source-map',
+  devServer: {
+    contentBase: path.join(__dirname, 'public'),
+    compress: true,
+    port: 8080
+  },
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.esm.js'

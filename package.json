@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "webpack --watch --mode=development",
+    "start:dev": "webpack-dev-server",
+    "start": "webpack-dev-server",
+    "webpack1": "node_modules/.bin/webpack-dev-server",
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "webpack",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -16,7 +18,8 @@
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.5",
     "vue-router": "^3.2.0",
-    "vuetify": "^2.3.7"
+    "vuetify": "^2.3.7",
+    "webpack-dev-server": "^3.11.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",
@@ -50,7 +53,6 @@
     },
     "rules": {}
   },
-  "proxy": "http://localhost:5000",
   "browserslist": [
     "> 1%",
     "last 2 versions",
