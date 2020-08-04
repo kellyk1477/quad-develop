@@ -1,7 +1,7 @@
 <template>
-  <div class="footer">
+  <section id="contact">
       Contact Us
-  </div>
+  </section>
 </template>
 
 <script>
@@ -12,7 +12,7 @@ export default {
 
 <style lang="scss" scoped>
 
-.footer {
+#contact {
     width: 100%;
     height: 600px;
     background: rgb(94, 87, 53);

@@ -5,6 +5,17 @@
         shrink-on-scroll
         src="https://picsum.photos/1920/1080?random"
         fade-img-on-scroll>
+        <ul>
+            <li>
+                <a href="#about">About Us</a>
+            </li>
+            <li>
+                <a href="#footer">Contact</a>
+            </li>
+            <li>
+                <a href="/inquiry">Inquiry</a>
+            </li>
+        </ul>
     </v-app-bar>
 </template>
 
@@ -16,6 +27,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    ul {
+        display: flex;
+    }
     //   <v-app-bar-nav-icon></v-app-bar-nav-icon>
     //   <v-toolbar-title>Title</v-toolbar-title>
     //   <v-spacer></v-spacer>
