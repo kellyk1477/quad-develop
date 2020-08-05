@@ -2,6 +2,7 @@
   <div>
     <div class="landing-with-nav">
       <nav id="navigation">
+        <h1>Quadstone Global</h1>
          <ul>
            <li>Home</li>
            <li>About</li>
@@ -26,9 +27,13 @@ export default {
       let nav = document.getElementById('navigation')
       window.onscroll = function() {
         if (window.pageYOffset > 100) {
-          nav.style.background = "grey";
+          nav.style.background = "white";
+          nav.style.borderBottom = "1px solid #E6E6E6"
+          nav.style.color = "black"
         } else {
+          nav.style.color = "white"
           nav.style.background = "transparent";
+          nav.style.borderBottomStyle = "none"
         }
       }
     }
@@ -40,29 +45,48 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css2?family=Maitree:wght@200;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Antic+Didone&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400&display=swap');
+
+h1 {
+  font-family: 'Antic Didone';
+  font-size: 28px;
+  font-weight: 300;
+  color: black;
+}
 
 .landing-with-nav {
   width: 100%;
   height: 100vh;
-  background: black;
+  background-image: url('../assets/images/main-landscape.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 
   nav {
     width: 100%;
-    padding: 20px;
+    padding: 13px 60px;
     position: fixed;
     top: 0px; 
-    transition: 0.5s;
     text-align: center;
+    transition: 0.5s;
+
+    display: flex;
+    justify-content: space-between;
+    color: white;
 
     li {
-      list-style-type: none;
-      display: inline-block;
-      padding: 10px 50px;
-      color: white; 
-      font-size: 20px;
       cursor: pointer;
+      font-size: 17px;
+      font-family: "Assistant";
+      font-weight: 400;
+      letter-spacing: 1.2px;
+      list-style-type: none;
+      text-transform: uppercase;
+      display: inline-block;
+      padding: 10px 35px;
       border-radius: 10px;
-      transition: 0.5s;
+      transition: 1.5s;
 
       &:hover {
         background: rgb(63, 63, 63);
@@ -74,13 +98,14 @@ export default {
 .section-one {
   width: 100%;
   height: 100vh;
-  background: rgb(9, 41, 9);
+  background: white;
+  border-bottom: 1px solid rgb(209, 209, 209);
   margin: 20px auto;
 }
 
-  section {
-    height: 100vh;
-    background-image: url('../assets/aesop-pic.jpg');
-    border-bottom: 2px solid black;
-  }
+section {
+  height: 100vh;
+  background-image: url('../assets/aesop-pic.jpg');
+  border-bottom: 2px solid black;
+}
 </style>
