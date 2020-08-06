@@ -51,7 +51,7 @@ export default {
 
 h1 {
   font-family: 'Antic Didone';
-  font-size: 28px;
+  font-size: 23px;
   font-weight: 300;
   color: black;
 }
@@ -65,7 +65,7 @@ h1 {
 
   nav {
     width: 100%;
-    padding: 13px 60px;
+    padding: 11px 47px;
     position: fixed;
     top: 0px; 
     text-align: center;
@@ -77,14 +77,14 @@ h1 {
 
     li {
       cursor: pointer;
-      font-size: 17px;
+      font-size: 13px;
       font-family: "Assistant";
       font-weight: 400;
       letter-spacing: 1.2px;
       list-style-type: none;
       text-transform: uppercase;
       display: inline-block;
-      padding: 10px 35px;
+      padding: 8px 29px;
       border-radius: 10px;
       transition: 1.5s;
 
