@@ -7,7 +7,9 @@
            <li>Home</li>
            <li>About</li>
            <li>Contact Us</li>
-           <li>Inquiries</li>
+           <li>
+              <a href="/inquiry">Inquiries</a>
+            </li>
          </ul>
       </nav>
     </div>
@@ -67,7 +69,7 @@ h1 {
     width: 100%;
     padding: 11px 47px;
     position: fixed;
-    top: 0px; 
+    top: 0px;
     text-align: center;
     transition: 0.5s;
 
