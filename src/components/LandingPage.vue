@@ -13,12 +13,18 @@
     </div>
     <div class="section-one"></div>
     <div class="section-one"></div>
+    <Footer />
   </div>
 </template>
 
 <script>
+import Footer from './Footer.vue'
+
 export default {
   name: 'LandingPage',
+  components: {
+    Footer
+  },
   mounted() {
     this.addScrollListener()
   },
