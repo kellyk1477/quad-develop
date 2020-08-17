@@ -77,27 +77,27 @@ export default {
   name: "Inquiry",
   data: () => ({
     valid: false,
-    email: '',
+    email: "",
     emailRules: [
-      v => !!v || 'E-mail is required',
-      v => /.+@.+/.test(v) || 'E-mail must be valid',
+      v => !!v || "E-mail is required",
+      v => /.+@.+/.test(v) || "E-mail must be valid",
     ],
-    phone: '',
+    phone: "",
     phoneRules: [
-      v => !!v || 'Phone Number is required',
-      v => /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/.test(v) || 'Phone number must be valid'
+      v => !!v || "Phone Number is required",
+      v => /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/.test(v) || "Phone number must be valid"
     ],
-    companyName: '',
-    quantity: '',
-    paymentTerm: '',
-    shipmentTerm: '',
-    priceTarget: '',
-
+    checkbox: ["buyer", "buyer's mandate", "broker"],
+    country: "",
+    companyName: "",
+    quantity: "",
+    paymentTerm: "",
+    shipmentTerm: "",
+    priceTarget: "",
   }),
   methods: {
     submit : function() {
-      console.log('t');
-      this.$refs.form.submit()
+      this.$refs.form.$el.submit()
     }
   }
 }
