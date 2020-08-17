@@ -69,31 +69,30 @@
           </div>
         </div>
 
-
-        <div class="position-input-container">
           <div class="checkbox-container">
             <div class="checkbox-title">
               Position
             </div>
-            <v-checkbox
-              v-model="checkbox"
-              label="Buyer"
-              value="buyer"
-              class="checkbox-item"
-            ></v-checkbox>
-            <v-checkbox
-              v-model="checkbox"
-              label="Buyer's Mandate"
-              value="buyersMandate"
-              class="checkbox-item"
-            ></v-checkbox>
-            <v-checkbox
-              v-model="checkbox"
-              label="Broker"
-              value="broker"
-            ></v-checkbox>
+            <v-radio-group v-model="position" row>
+              <v-radio
+                key="1"
+                label="Buyer"
+                value="buyer"
+                class="checkbox-item"
+              ></v-radio>
+              <v-radio
+                key="2"
+                label="Buyer's Mandate"
+                value="buyersMandate"
+                class="checkbox-item"
+              ></v-radio>
+              <v-radio
+                key="3"
+                label="Broker"
+                value="broker"
+              ></v-radio>
+            </v-radio-group>
           </div>
-        </div>
 
         <div class="submit-button-container">
           <button @click="submit">Submit Inquiry</button>
@@ -127,7 +126,7 @@ export default {
       v => !!v || "Phone Number is required",
       v => /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/.test(v) || "Phone number must be valid"
     ],
-    checkbox: ["buyer", "buyer's mandate", "broker"],
+    position: null,
     country: "",
     companyName: "",
     quantity: "",
@@ -136,30 +135,27 @@ export default {
     priceTarget: "",
   }),
   methods: {
-    styleElements : function (checkBoxes, inquiryContainer) {
+    styleElements : function (inquiryContainer) {
       if(window.innerWidth < 500) {
         inquiryContainer.style.width = "100%";
         inquiryContainer.style.border = "none";
       }
       else if (window.innerWidth < 1000) {
         inquiryContainer.style.width = "90%";
+        inquiryContainer.style.border = "1px solid rgb(190, 188, 188)";
       }
       else {
-        checkBoxes.style.flexDirection = "row";
         inquiryContainer.style.width = "60%";
         inquiryContainer.style.border = "1px solid rgb(190, 188, 188)";
-        inquiryContainer.style.borderRadius = "0";
-        inquiryContainer.style.margin = "0px 0px 80px 0px";
       }
     },
     addResizeListener : function () {
-      let checkBoxes = document.querySelector('.checkbox-container');
       let inquiryContainer = document.querySelector('.inquiry-container');
 
-      this.styleElements(checkBoxes, inquiryContainer);
+      this.styleElements(inquiryContainer);
 
       window.onresize = () => {
-        this.styleElements(checkBoxes, inquiryContainer);
+        this.styleElements(inquiryContainer);
       }
     },
     submit : function() {
@@ -181,7 +177,6 @@ export default {
   }
 
   .inquiry-title {
-    // text-align: center;
     font-size: 24px;
     font-weight: 300;
     letter-spacing: 1px;
@@ -193,11 +188,10 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    // border: 1px solid black;
-    border-radius: 8px;
     width: 90%;
-    // max-width: 1000px;
+    max-width: 1000px;
     padding: 30px;
+    margin-bottom: 80px;
     font-family: "Assistant";
   }
 
@@ -216,24 +210,20 @@ export default {
     }
   }
 
-  .position-input-container {
-    color: rgba(0, 0, 0, 0.87);
-    border-radius: 4px;
-    margin-bottom: 34px;
+  .checkbox-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
 
-    .checkbox-container {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
+    .checkbox-title {
+      margin-right: 20px;
+      color: #666666;
+    }
 
-      .checkbox-title {
-        margin-right: 20px;
-        color: #666666;
-      }
-
-      .checkbox-item {
-        margin-right: 20px;
-      }
+    .checkbox-item {
+      margin-right: 20px;
     }
   }
 
