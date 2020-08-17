@@ -13,18 +13,19 @@
          </ul>
       </nav>
     </div>
-    <div class="section-one"></div>
-    <div class="section-one"></div>
+    <About />
     <Footer />
   </div>
 </template>
 
 <script>
+import About from './About.vue'
 import Footer from './Footer.vue'
 
 export default {
   name: 'LandingPage',
   components: {
+    About,
     Footer
   },
   mounted() {

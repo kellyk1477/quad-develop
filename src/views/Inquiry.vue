@@ -95,7 +95,7 @@
           </div>
 
         <div class="submit-button-container">
-          <button @click="submit">Submit Inquiry</button>
+          <button @click.prevent="submit">Submit Inquiry</button>
         </div>
       </v-container>
     </v-form>
@@ -104,6 +104,7 @@
 </template>
 
 <script>
+import emailjs from 'emailjs-com';
 import Footer from '../components/Footer.vue'
 
 export default {
@@ -159,8 +160,26 @@ export default {
       }
     },
     submit : function() {
-      this.$refs.form.$el.submit()
-      alert('Success');
+      var templateParams = {
+          companyName: this.companyName,
+          country: this.country,
+          email: this.email,
+          phone: this.phone,
+          quantity: this.quantity,
+          paymentTerm: this.paymentTerm,
+          shipmentTerm: this.shipmentTerm,
+          position: this.checkbox,
+          priceTarget: this.priceTarget,
+      }
+      emailjs.send('default_service', 'template_eFtx741h', templateParams, 'user_YxJ7rIxrLI2oK3z1cGPMO')
+          .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text)
+            // alert('Success');
+          }, function(error) {
+            console.log('FAILED...', error)
+          })
+      // this.$refs.form.$el.submit()
+      // Add in form # in email message
     }
   }
 }
