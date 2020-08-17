@@ -131,10 +131,7 @@ export default {
     priceTarget: "",
   }),
   methods: {
-    addResizeListener() {
-      let checkBoxes = document.querySelector('.checkbox-container');
-      let inquiryContainer = document.querySelector('.inquiry-container');
-
+    styleElements : function (checkBoxes, inquiryContainer) {
       if(window.innerWidth < 500) {
         checkBoxes.style.flexDirection = "column";
         inquiryContainer.style.width = "100%";
@@ -150,23 +147,15 @@ export default {
         inquiryContainer.style.width = "50%";
         inquiryContainer.style.border = "1px solid black";
       }
+    },
+    addResizeListener : function () {
+      let checkBoxes = document.querySelector('.checkbox-container');
+      let inquiryContainer = document.querySelector('.inquiry-container');
 
-      window.onresize = function() {
-        if(window.innerWidth < 500) {
-          checkBoxes.style.flexDirection = "column";
-          inquiryContainer.style.width = "100%";
-          inquiryContainer.style.border = "none";
-        }
-        else if (window.innerWidth < 1000) {
-          checkBoxes.style.flexDirection = "column";
-          inquiryContainer.style.width = "75%";
-          inquiryContainer.style.border = "1px solid black";
-        }
-        else {
-          checkBoxes.style.flexDirection = "row";
-          inquiryContainer.style.width = "50%";
-          inquiryContainer.style.border = "1px solid black";
-        }
+      this.styleElements(checkBoxes, inquiryContainer);
+
+      window.onresize = () => {
+        this.styleElements(checkBoxes, inquiryContainer);
       }
     },
     submit : function() {
