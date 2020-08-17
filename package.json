@@ -19,6 +19,7 @@
     "babel-loader": "^8.1.0",
     "core-js": "^3.6.5",
     "deepmerge": "^4.2.2",
+    "emailjs-com": "^2.6.3",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
     "express": "^4.17.1",
