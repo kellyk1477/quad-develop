@@ -47,7 +47,6 @@ export default {
   }
   a {
     text-decoration: none;
-    color: white !important;
   }
   ol, ul {
     list-style: none;

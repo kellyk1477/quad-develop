@@ -100,6 +100,10 @@ h1 {
       &:hover {
         background: rgb(63, 63, 63);
       }
+
+      a {
+        color: inherit;
+      }
     }
   }
 }
