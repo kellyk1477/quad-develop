@@ -59,12 +59,14 @@
             <v-text-field
               label="Quantity"
               v-model="quantity"
+              type="number"
             ></v-text-field>
           </div>
           <div class="right-container">
             <v-text-field
               label="Price Target"
               v-model="priceTarget"
+              type="number"
             ></v-text-field>
           </div>
         </div>
@@ -168,7 +170,7 @@ export default {
           quantity: this.quantity,
           paymentTerm: this.paymentTerm,
           shipmentTerm: this.shipmentTerm,
-          position: this.checkbox,
+          position: this.position,
           priceTarget: this.priceTarget,
       }
       emailjs.send('default_service', 'template_eFtx741h', templateParams, 'user_YxJ7rIxrLI2oK3z1cGPMO')
@@ -192,7 +194,7 @@ export default {
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin: 50px 0 0 0;
+    margin-top: 50px;
   }
 
   .inquiry-title {
