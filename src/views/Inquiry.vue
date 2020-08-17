@@ -4,20 +4,27 @@
       <v-container class="inquiry-inner-container">
         <h1 class="inquiry-title">Submit an inquiry</h1>
 
-        <v-text-field
-          label="Company Name"
-          v-model="companyName"
-          outlined
-          required
-        ></v-text-field>
-
+        <div class="form-line">
+          <div class="left-container">
+            <v-text-field
+              label="Company Name"
+              v-model="companyName"
+              required
+            ></v-text-field>
+          </div>
+          <div class="right-container">
+            <v-text-field
+              label="Country"
+              v-model="country"
+            ></v-text-field>
+          </div>
+        </div>
         <div class="form-line">
           <div class="left-container">
             <v-text-field
               v-model="email"
               :rules="emailRules"
               label="E-mail"
-              outlined
               required
             ></v-text-field>
           </div>
@@ -27,54 +34,22 @@
               v-model="phone"
               :rules="phoneRules"
               label="Phone Number"
-              outlined
               required
             ></v-text-field>
           </div>
         </div>
-
-        <div class="position-input-container">
-          <div>
-            Position
-          </div>
-          <div class="checkbox-container">
-            <v-checkbox
-              v-model="checkbox"
-              label="Buyer"
-              value="buyer"
-            ></v-checkbox>
-            <v-checkbox
-              v-model="checkbox"
-              label="Buyer's Mandate"
-              value="buyersMandate"
-            ></v-checkbox>
-            <v-checkbox
-              v-model="checkbox"
-              label="Broker"
-              value="broker"
-            ></v-checkbox>
-          </div>
-        </div>
-
-        <v-text-field
-          label="Country"
-          v-model="country"
-          outlined
-        ></v-text-field>
 
         <div class="form-line">
           <div class="left-container">
             <v-text-field
               label="Payment Term"
               v-model="paymentTerm"
-              outlined
             ></v-text-field>
           </div>
           <div class="right-container">
             <v-text-field
               label="Shipment Term"
               v-model="shipmentTerm"
-              outlined
             ></v-text-field>
           </div>
         </div>
@@ -84,29 +59,59 @@
             <v-text-field
               label="Quantity"
               v-model="quantity"
-              outlined
             ></v-text-field>
           </div>
           <div class="right-container">
             <v-text-field
               label="Price Target"
               v-model="priceTarget"
-              outlined
             ></v-text-field>
           </div>
         </div>
 
+
+        <div class="position-input-container">
+          <div class="checkbox-container">
+            <div class="checkbox-title">
+              Position
+            </div>
+            <v-checkbox
+              v-model="checkbox"
+              label="Buyer"
+              value="buyer"
+              class="checkbox-item"
+            ></v-checkbox>
+            <v-checkbox
+              v-model="checkbox"
+              label="Buyer's Mandate"
+              value="buyersMandate"
+              class="checkbox-item"
+            ></v-checkbox>
+            <v-checkbox
+              v-model="checkbox"
+              label="Broker"
+              value="broker"
+            ></v-checkbox>
+          </div>
+        </div>
+
         <div class="submit-button-container">
-          <v-btn class="mr-4" @click="submit">submit</v-btn>
+          <button @click="submit">Submit Inquiry</button>
         </div>
       </v-container>
     </v-form>
+    <Footer />
   </div>
 </template>
 
 <script>
+import Footer from '../components/Footer.vue'
+
 export default {
   name: "Inquiry",
+  components: {
+    Footer,
+  },
   mounted() {
     this.addResizeListener()
   },
@@ -133,19 +138,18 @@ export default {
   methods: {
     styleElements : function (checkBoxes, inquiryContainer) {
       if(window.innerWidth < 500) {
-        checkBoxes.style.flexDirection = "column";
         inquiryContainer.style.width = "100%";
         inquiryContainer.style.border = "none";
       }
       else if (window.innerWidth < 1000) {
-        checkBoxes.style.flexDirection = "column";
-        inquiryContainer.style.width = "75%";
-        inquiryContainer.style.border = "1px solid black";
+        inquiryContainer.style.width = "90%";
       }
       else {
         checkBoxes.style.flexDirection = "row";
-        inquiryContainer.style.width = "50%";
-        inquiryContainer.style.border = "1px solid black";
+        inquiryContainer.style.width = "60%";
+        inquiryContainer.style.border = "1px solid rgb(190, 188, 188)";
+        inquiryContainer.style.borderRadius = "0";
+        inquiryContainer.style.margin = "0px 0px 80px 0px";
       }
     },
     addResizeListener : function () {
@@ -160,6 +164,7 @@ export default {
     },
     submit : function() {
       this.$refs.form.$el.submit()
+      alert('Success');
     }
   }
 }
@@ -172,12 +177,14 @@ export default {
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin: 50px 0 50px 0;
+    margin: 50px 0 0 0;
   }
 
   .inquiry-title {
-    text-align: center;
-    font-size: 30px;
+    // text-align: center;
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: 1px;
     margin-bottom: 20px;
   }
 
@@ -186,11 +193,12 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid black;
+    // border: 1px solid black;
     border-radius: 8px;
-    width: 50%;
-    max-width: 900px;
+    width: 90%;
+    // max-width: 1000px;
     padding: 30px;
+    font-family: "Assistant";
   }
 
   .form-line {
@@ -199,7 +207,7 @@ export default {
     justify-content: space-between;
 
     .left-container {
-      margin-right: 20px;
+      margin-right: 40px;
       width: 50%;
     }
 
@@ -209,22 +217,45 @@ export default {
   }
 
   .position-input-container {
-    border: 1px solid rgba(0, 0, 0, 0.42);
     color: rgba(0, 0, 0, 0.87);
     border-radius: 4px;
     margin-bottom: 34px;
-    padding: 12px;
 
     .checkbox-container {
       display: flex;
       flex-direction: row;
-      justify-content: space-around;
+      align-items: center;
+
+      .checkbox-title {
+        margin-right: 20px;
+        color: #666666;
+      }
+
+      .checkbox-item {
+        margin-right: 20px;
+      }
     }
   }
 
   .submit-button-container {
     display: flex;
     justify-content: center;
+
+    button {
+      padding: 11px 20px;
+      background: black;
+      width: 50%;
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 0.8px;
+      transition: all 0.3s;
+      border-radius: 5px;
+
+      &:hover {
+        background: rgb(150, 148, 148);
+      }
+    }
   }
 
   ::v-deep input::-webkit-outer-spin-button,
