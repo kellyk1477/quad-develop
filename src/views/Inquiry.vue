@@ -97,7 +97,7 @@
           </div>
 
         <div class="submit-button-container">
-          <button @click.prevent="submit">Submit Inquiry</button>
+          <v-btn @click.prevent="submit" :disabled="!valid">Submit Inquiry</v-btn>
         </div>
       </v-container>
     </v-form>
@@ -115,7 +115,7 @@ export default {
     Footer,
   },
   mounted() {
-    this.addResizeListener()
+    this.addResizeListener();
   },
   data: () => ({
     valid: false,
@@ -254,17 +254,16 @@ export default {
 
     button {
       padding: 11px 20px;
-      background: black;
+      background: black !important;
       width: 50%;
       color: white;
       font-size: 14px;
       font-weight: bold;
       letter-spacing: 0.8px;
       transition: all 0.3s;
-      border-radius: 5px;
 
       &:hover {
-        background: rgb(150, 148, 148);
+        background: rgb(150, 148, 148) !important;
       }
     }
   }
