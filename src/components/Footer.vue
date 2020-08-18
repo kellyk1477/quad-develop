@@ -1,25 +1,27 @@
 <template>
   <section id="contact">
-    <div class="contact-info">
-        <div class="contact-details">
-            <h1>Contact</h1>
-            <div v-for="(person, viz) in info" :key="viz">
-                <h3>{{ person.name }}</h3>
-                <a :href="'mailto:' + person.email">{{ person.email }}</a>
-                <p>{{ person.tel }}</p>
+      <div class="contact-container">
+        <div class="contact-info">
+            <div class="contact-details">
+                <h1>Contact</h1>
+                <div v-for="(person, viz) in info" :key="viz">
+                    <h3>{{ person.name }}</h3>
+                    <a :href="'mailto:' + person.email">{{ person.email }}</a>
+                    <p>{{ person.tel }}</p>
+                </div>
+                <h3>General Inquiry</h3>
+                <a href="mailto:info@quadstoneglobal.com">info@quadstoneglobal.com</a>
             </div>
-            <h3>General Inquiry</h3>
-            <a href="mailto:info@quadstoneglobal.com">info@quadstoneglobal.com</a>
         </div>
-        <div class="company-name">
-            <p>Quadstone Global</p>
-            <p>JJSC Gloabl Inc.</p>
+        <div class="contact-address">
+            <h1>Address</h1>
+            <p>TrueCare, LLC <br /> 53-594 Kamehameha Hwy <br /> Hauula, HI 96717</p>
         </div>
-    </div>
-    <div class="contact-address">
-      <h1>Address</h1>
-      <p>TrueCare, LLC <br /> 53-594 Kamehameha Hwy <br /> Hauula, HI 96717</p>
-    </div>
+      </div>
+      <div class="company-name">
+        <p>Quadstone Global</p>
+        <p>JJSC Gloabl Inc.</p>
+      </div>
   </section>
 </template>
 
@@ -55,8 +57,28 @@ export default {
     font-family: "Assistant";
     font-size: 15px;
     color: white;
+    padding: 60px 0px 60px 0px;
     display: flex;
-    padding: 60px 270px 40px 270px;
+    flex-direction: column;
+
+    .contact-container {
+        width: 70%;
+        height: 85%;
+        display: flex;
+        margin: auto;
+    }
+}
+
+.company-name {
+    width: 70%;
+    margin: auto;
+    
+    p {
+        color: white !important;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.2px;
+    }
 }
 
 .contact-info {
@@ -64,16 +86,12 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     margin-right: 80px;
-
-    
-    .company-name p {
-        color: white !important;
-    }
 }
 
 .contact-address p {
     color: white !important;
     line-height: 30px;
+    min-width: 195px;
 }
 
 h1 {
@@ -110,11 +128,52 @@ a {
     }
 }
 
-    .contact-details  {
-       
-       div:first-child {
-           background: red;
-       }
+.contact-details  {
+    min-width: 195px;
+    
+    div:first-child {
+        background: red;
     }
+}
+
+@media (max-width: 740px) {
+
+    .contact-info {
+        margin-bottom: 20px;
+        margin-right: 0px;
+    }
+
+    h1 {
+        line-height: 38px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid rgba(201, 201, 201, 0.452);
+    }
+
+    #contact {
+        height: 670px;
+        padding: 40px 0px 40px 0px;
+
+        .contact-container {
+            flex-direction: column;
+            width: 90%;
+        }
+
+        .contact-address p {
+            line-height: 26px;
+        }
+
+        .company-name {
+            width: 90%;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.2px;
+
+            p {
+                font-size: 13px;
+            }
+        }
+    }
+    
+}
 
 </style>
