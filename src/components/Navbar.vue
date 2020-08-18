@@ -74,11 +74,11 @@ h1 {
       text-transform: uppercase;
       display: inline-block;
       padding: 8px 29px;
-      border-radius: 10px;
-      transition: 1.5s;
+      border-radius: 8px;
+      transition: 1.3s;
 
       &:hover {
-        background: rgb(63, 63, 63);
+        background: rgba(163, 162, 162, 0.459);
       }
 
       a {

@@ -1,19 +1,26 @@
 <template>
-    <div>
+    <div class="about-section">
+<!--         
         <div class="about-container">
-            <div class="about-content">
-                <h1>About Us</h1>
-                <p>
-                    JJSC Global Inc. d/b/a Quadstone Global is an international consulting firm founded by Justin Constantatos, Caesar Ho, Judy Ku and Susan Shin,
-                    whose collective experiences serve clients all over world in various aspects related to Personal Protective Equipment (“PPE”). Although Quadstone 
-                    Global advises on comprehensive PPE sourcing, procurement and acquisitions, it specializes in protective gloves for industrial and medical use.
-                    Quadstone focuses on the following main aspects as it pertains to gloves: 1) sourcing and procurement of existing inventory/OTG; 2) sustainable
-                    production contracts; and 3) proprietary, direct product sales OTG.
-                </p>
-                <button><a href="./jjsc-guideline-final.pdf" target="_blank">Financing | Prices</a></button>
+            <div class="about-content-container">
+                <div class="about-content">
+                    <div></div>
+                    <h1>About Us</h1>
+                    <p>
+                        JJSC Global Inc. d/b/a Quadstone Global is an international consulting firm founded by Justin Constantatos, Caesar Ho, Judy Ku and Susan Shin,
+                        whose collective experiences serve clients all over world in various aspects related to Personal Protective Equipment (“PPE”). Although Quadstone 
+                        Global advises on comprehensive PPE sourcing, procurement and acquisitions, it specializes in protective gloves for industrial and medical use.
+                        Quadstone focuses on the following main aspects as it pertains to gloves: 1) sourcing and procurement of existing inventory/OTG; 2) sustainable
+                        production contracts; and 3) proprietary, direct product sales OTG.
+                    </p>
+                    <button><a href="./jjsc-guideline-final.pdf" target="_blank">Financing | Prices</a></button>
+                </div>
             </div>
-            <div class="about-image"></div>
-        </div>
+            <div class="about-image">
+                <div class="image"></div>
+            </div>
+        </div> -->
+
         <div class="about-container-two">
             <div class="about-content">
                 <h1>About Us</h1>
@@ -24,7 +31,7 @@
                     Quadstone focuses on the following main aspects as it pertains to gloves: 1) sourcing and procurement of existing inventory/OTG; 2) sustainable
                     production contracts; and 3) proprietary, direct product sales OTG.
                 </p>
-                <button>Financing | Prices</button>
+                <button><a href="./jjsc-guideline-final.pdf" target="_blank">Financing | Prices</a></button>
             </div>
         </div>
     </div>
@@ -59,12 +66,21 @@ button {
     }
 }
 
-.about-container-two {
+.about-section {
     width: 100%;
-    height: 80vh;
+    height: 76vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-container-two {
+    width: 90%;
+    // height: 80vh;
     // background: red;
     display: flex;
     font-family: "Assistant";
+    margin: auto;
+    padding: 30px 0px;
 
     h1 {
         font-size: 40px;
@@ -73,9 +89,13 @@ button {
 
     button {
         font-family: "Assistant";
-        background: black;
-        color: white;
+        // background: black;
         margin-top: 26px;
+
+        a {
+            color: black !important;
+        }
+
     }
 
     .about-content {
@@ -93,40 +113,64 @@ button {
 }
 
 .about-container {
-    width: 100%;
-    height: 100vh;
-    // background: red;
+    width: 90%;
+    height: 89%;
+    height: 80vh;
+    // background: rgb(223, 157, 157);
     display: flex;
     flex-direction: row;
-    padding: 100px 170px;
+    padding: 0px 10px;
+    margin: auto;
     font-family: "Antic Didone";
     font-family: "Assistant";
 
     div {
         flex: 1;
-        // background: blue;
         height: 100%; 
         margin: auto;
+        // background: rgb(191, 236, 154);
     } 
 
-    .about-content {
-        flex: 1;
-        margin-right: 20px;
-        padding: 0px 180px 0px 160px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        // border: 1px solid black;
+    .about-content-container {
+        height: fit-content;
+        // background: orange;
 
-        p {
-            font-size: 16px;
-            line-height: 26px;
-            font-family: "Assistant";
-        }
-    }  
+        .about-content {
+            // margin-right: 20px;
+            // padding: 0px 180px 0px 160px;
+            width: 76%;
+            margin-right: 10px;
+            padding-right: 20%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            // background: rgb(223, 223, 150);
+            // border: 1px solid black;
+
+            p {
+                font-size: 16px;
+                line-height: 26px;
+                font-family: "Assistant";
+            }
+        }  
+    }
 
     .about-image {
-        border: 1px solid black;
+
+        .image {
+            width: 76%;
+            margin-right: 10px;
+            border: 1px solid black;
+            // background: red;
+        }
+
+    }
+
+}
+
+@media (max-width: 740px) {
+    .about-section {
+        height: 90vh;
     }
 }
 
