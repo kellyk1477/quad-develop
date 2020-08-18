@@ -1,6 +1,7 @@
 <template>
   <div>
     <Navbar />
+    <TitleCard />
     <About />
     <Footer />
   </div>
@@ -10,6 +11,7 @@
 import About from './About.vue'
 import Footer from './Footer.vue'
 import Navbar from './Navbar.vue'
+import TitleCard from './TitleCard.vue'
 
 export default {
   name: 'LandingPage',
@@ -17,6 +19,7 @@ export default {
     Navbar,
     About,
     Footer,
+    TitleCard,
   },
 };
 </script>

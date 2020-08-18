@@ -1,6 +1,5 @@
 <template>
-    <div class="landing-with-nav">
-      <nav id="navigation">
+    <nav id="navigation">
         <h1>Quadstone Global</h1>
          <ul>
            <li>Home</li>
@@ -10,8 +9,7 @@
               <a href="/inquiry">Inquiries</a>
             </li>
          </ul>
-      </nav>
-    </div>
+    </nav>
 </template>
 
 <script>
@@ -51,13 +49,6 @@ h1 {
   color: black;
 }
 
-.landing-with-nav {
-  width: 100%;
-  height: 100vh;
-  background-image: url('../assets/images/main-landscape.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-
   nav {
     width: 100%;
     padding: 11px 47px;
@@ -91,7 +82,6 @@ h1 {
         color: inherit;
       }
     }
-  }
 }
 </style>
 
