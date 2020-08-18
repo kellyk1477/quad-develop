@@ -227,7 +227,9 @@ export default {
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin-top: 50px;
+    height: 89vh;
+    margin-top: 57px;
+    margin-top: 27px;
   }
 
   .inquiry-title {
