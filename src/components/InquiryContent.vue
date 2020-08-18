@@ -221,7 +221,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
   .submission-result {
     display: flex;
     align-items: center;

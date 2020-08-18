@@ -41,10 +41,11 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400&display=swap');
 
 h1 {
-  font-family: 'Antic Didone';
-  font-size: 23px;
-  font-weight: 300;
-  color: black;
+    font-family: 'Antic Didone';
+    font-size: 23px;
+    font-weight: 300;
+    color: black;
+    white-space: nowrap;
 
     a {
         color: inherit;
