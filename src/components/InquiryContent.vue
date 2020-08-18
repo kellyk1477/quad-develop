@@ -300,6 +300,7 @@ export default {
       padding: 20px 0px !important;
       background: rgb(22, 22, 22) !important;
       width: 24%;
+      min-width: 110px !important;
       color: white;
       font-size: 14px;
       font-weight: bold;
