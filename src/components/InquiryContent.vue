@@ -1,6 +1,6 @@
 <template>
   <div class="inquiry">
-    <v-form v-model="valid" ref="form" class="inquiry-container">
+    <v-form v-model="valid" ref="form" class="inquiry-container" action="https://formspree.io/xzbjqzpr" method="POST">
       <v-container class="inquiry-inner-container">
         <h1 class="inquiry-title">Submit an inquiry</h1>
 
@@ -9,6 +9,7 @@
             <v-text-field
               label="Company Name"
               v-model="companyName"
+              name="companyName"
               required
             ></v-text-field>
           </div>
@@ -16,6 +17,7 @@
             <v-text-field
               label="Country"
               v-model="country"
+              name="country"
             ></v-text-field>
           </div>
         </div>
@@ -25,6 +27,7 @@
               v-model="email"
               :rules="emailRules"
               label="E-mail"
+              name="email"
               required
             ></v-text-field>
           </div>
@@ -34,6 +37,7 @@
               v-model="phone"
               :rules="phoneRules"
               label="Phone Number"
+              name="phone"
               required
             ></v-text-field>
           </div>
@@ -44,12 +48,14 @@
             <v-text-field
               label="Payment Term"
               v-model="paymentTerm"
+              name="paymentTerm"
             ></v-text-field>
           </div>
           <div class="right-container">
             <v-text-field
               label="Shipment Term"
               v-model="shipmentTerm"
+              name="shipmentTerm"
             ></v-text-field>
           </div>
         </div>
@@ -59,6 +65,7 @@
             <v-text-field
               label="Quantity"
               v-model="quantity"
+              name="quantity"
               type="number"
             ></v-text-field>
           </div>
@@ -66,6 +73,7 @@
             <v-text-field
               label="Price Target"
               v-model="priceTarget"
+              name="priceTarget"
               type="number"
             ></v-text-field>
           </div>
@@ -80,24 +88,27 @@
                 key="1"
                 label="Buyer"
                 value="buyer"
+                name="buyer"
                 class="checkbox-item"
               ></v-radio>
               <v-radio
                 key="2"
                 label="Buyer's Mandate"
                 value="buyersMandate"
+                name="buyersMandate"
                 class="checkbox-item"
               ></v-radio>
               <v-radio
                 key="3"
                 label="Broker"
                 value="broker"
+                name="broker"
               ></v-radio>
             </v-radio-group>
           </div>
 
         <div class="submit-button-container">
-          <v-btn @click.prevent="submit" :disabled="!valid">Submit Inquiry</v-btn>
+          <v-btn type="submit" :disabled="!valid">Submit Inquiry</v-btn>
         </div>
       </v-container>
     </v-form>
