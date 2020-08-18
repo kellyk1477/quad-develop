@@ -2,7 +2,7 @@
     <nav id="navigation">
         <h1><a href="/">Quadstone Global</a></h1>
         <ul>
-           <li>Home</li>
+           <li><a href="/">Home</a></li>
            <li>About</li>
            <li>Contact Us</li>
            <li><a href="/inquiry">Inquiries</a></li>
