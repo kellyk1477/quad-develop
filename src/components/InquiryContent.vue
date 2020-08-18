@@ -1,5 +1,7 @@
 <template>
   <div class="inquiry">
+    <div v-if="success" class="submission-result">Thank you for your submission!</div>
+    <div v-if="failed" class="submission-result red">Sorry, please try again</div>
     <v-form v-model="valid" ref="form" class="inquiry-container" action="https://formspree.io/xzbjqzpr" method="POST">
       <v-container class="inquiry-inner-container">
         <h1 class="inquiry-title">Submit an inquiry</h1>
@@ -108,7 +110,7 @@
           </div>
 
         <div class="submit-button-container">
-          <v-btn type="submit" :disabled="!valid">Submit Inquiry</v-btn>
+          <v-btn @click.prevent="submit" :disabled="!valid">Submit Inquiry</v-btn>
         </div>
       </v-container>
     </v-form>
@@ -142,6 +144,8 @@ export default {
     paymentTerm: "",
     shipmentTerm: "",
     priceTarget: "",
+    success: false,
+    failed: false,
   }),
   methods: {
     styleElements : function (inquiryContainer) {
@@ -179,11 +183,17 @@ export default {
           position: this.position,
           priceTarget: this.priceTarget,
       }
+      var self = this
       emailjs.send('default_service', 'template_eFtx741h', templateParams, 'user_YxJ7rIxrLI2oK3z1cGPMO')
           .then(function(response) {
+            setTimeout(() => {
+              self.success = true
+            }, 500);
             console.log('SUCCESS!', response.status, response.text)
-            // alert('Success');
           }, function(error) {
+            setTimeout(() => {
+              self.failed = true
+            }, 500);
             console.log('FAILED...', error)
           })
       // this.$refs.form.$el.submit()
@@ -194,6 +204,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+  .submission-result {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 40px;
+    background: rgb(182, 212, 230);
+    transition: all 2s;
+    padding: 0px 20px;
+    z-index: 100;
+  }
+
+  .submission-result.red {
+    background: red;
+  }
+
   .inquiry {
     display: flex;
     flex-direction: column;
