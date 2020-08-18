@@ -1,12 +1,12 @@
 <template>
     <nav id="navigation">
-        <h1>Quadstone Global</h1>
-         <ul>
+        <h1><a href="/">Quadstone Global</a></h1>
+        <ul>
            <li>Home</li>
            <li>About</li>
            <li>Contact Us</li>
            <li><a href="/inquiry">Inquiries</a></li>
-         </ul>
+        </ul>
     </nav>
 </template>
 
@@ -45,6 +45,10 @@ h1 {
   font-size: 23px;
   font-weight: 300;
   color: black;
+
+    a {
+        color: inherit;
+    }
 }
 
   nav {
