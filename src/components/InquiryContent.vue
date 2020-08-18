@@ -12,6 +12,7 @@
               label="Company Name"
               v-model="companyName"
               name="companyName"
+              :rules="[v => !!v || 'Company Name is required']"
               required
             ></v-text-field>
           </div>
@@ -80,33 +81,42 @@
           </div>
         </div>
 
-          <div class="checkbox-container">
-            <div class="checkbox-title">
-              Position
-            </div>
-            <v-radio-group v-model="position" row>
-              <v-radio
-                key="1"
-                label="Buyer"
-                value="buyer"
-                name="buyer"
-                class="checkbox-item"
-              ></v-radio>
-              <v-radio
-                key="2"
-                label="Buyer's Mandate"
-                value="buyersMandate"
-                name="buyersMandate"
-                class="checkbox-item"
-              ></v-radio>
-              <v-radio
-                key="3"
-                label="Broker"
-                value="broker"
-                name="broker"
-              ></v-radio>
-            </v-radio-group>
+        <div class="checkbox-container">
+          <div class="checkbox-title">
+            Position
           </div>
+          <v-radio-group v-model="position" row>
+            <v-radio
+              key="1"
+              label="Buyer"
+              value="buyer"
+              name="buyer"
+              class="checkbox-item"
+            ></v-radio>
+            <v-radio
+              key="2"
+              label="Buyer's Mandate"
+              value="buyersMandate"
+              name="buyersMandate"
+              class="checkbox-item"
+            ></v-radio>
+            <v-radio
+              key="3"
+              label="Broker"
+              value="broker"
+              name="broker"
+            ></v-radio>
+          </v-radio-group>
+        </div>
+
+        <div>
+          <v-textarea
+            outlined
+            name="comments"
+            label="Addtional Comments"
+            v-model="comments"
+          ></v-textarea>
+        </div>
 
         <div class="submit-button-container">
           <v-btn @click.prevent="submit" :disabled="!valid">Submit Inquiry</v-btn>
@@ -143,6 +153,7 @@ export default {
     paymentTerm: "",
     shipmentTerm: "",
     priceTarget: "",
+    comments: "",
     success: false,
     failed: false,
   }),
@@ -184,6 +195,7 @@ export default {
           shipmentTerm: this.shipmentTerm,
           position: this.position,
           priceTarget: this.priceTarget,
+          comments: this.comments,
       }
       var self = this
       emailjs.send('default_service', 'template_eFtx741h', templateParams, 'user_YxJ7rIxrLI2oK3z1cGPMO')
@@ -236,9 +248,7 @@ export default {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 89vh;
     margin-top: 57px;
-    margin-top: 27px;
   }
 
   .inquiry-title {
