@@ -170,6 +170,9 @@ export default {
         this.styleElements(inquiryContainer);
       }
     },
+    clear : function() {
+      this.$refs.form.reset();
+    },
     submit : function() {
       var templateParams = {
           companyName: this.companyName,
@@ -184,15 +187,18 @@ export default {
       }
       var self = this
       emailjs.send('default_service', 'template_eFtx741h', templateParams, 'user_YxJ7rIxrLI2oK3z1cGPMO')
-          .then(function(response) {
+          .then((response) => {
+            this.clear();
+            self.success = true
             setTimeout(() => {
-              self.success = true
-            }, 500);
+              self.success = false
+            }, 3000);
             console.log('SUCCESS!', response.status, response.text)
           }, function(error) {
+            self.failed = true
             setTimeout(() => {
-              self.failed = true
-            }, 500);
+              self.failed = false
+            }, 3000);
             console.log('FAILED...', error)
           })
       // this.$refs.form.$el.submit()
@@ -205,6 +211,8 @@ export default {
 <style lang="scss" scoped>
 
   .submission-result {
+    display: flex;
+    align-items: center;
     position: fixed;
     top: 0;
     width: 100%;
@@ -213,6 +221,7 @@ export default {
     transition: all 2s;
     padding: 0px 20px;
     z-index: 100;
+    font-weight: 300;
     font-family: "Assistant";
     font-size: 16px;
   }
