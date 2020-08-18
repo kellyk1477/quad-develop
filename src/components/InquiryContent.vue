@@ -210,14 +210,16 @@ export default {
     top: 0;
     width: 100%;
     height: 40px;
-    background: rgb(182, 212, 230);
+    background: rgb(221, 239, 250);
     transition: all 2s;
     padding: 0px 20px;
     z-index: 100;
+    font-family: "Assistant";
+    font-size: 16px;
   }
 
-  .submission-result.red {
-    background: red;
+   ::v-deep .submission-result.red {
+    background-color: rgba(197, 92, 92, 0.884) !important;
   }
 
   .inquiry {
