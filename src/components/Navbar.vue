@@ -5,9 +5,7 @@
            <li>Home</li>
            <li>About</li>
            <li>Contact Us</li>
-           <li>
-              <a href="/inquiry">Inquiries</a>
-            </li>
+           <li><a href="/inquiry">Inquiries</a></li>
          </ul>
     </nav>
 </template>
