@@ -192,13 +192,13 @@ export default {
             self.success = true
             setTimeout(() => {
               self.success = false
-            }, 3000);
+            }, 5000);
             console.log('SUCCESS!', response.status, response.text)
           }, function(error) {
             self.failed = true
             setTimeout(() => {
               self.failed = false
-            }, 3000);
+            }, 5000);
             console.log('FAILED...', error)
           })
       // this.$refs.form.$el.submit()
@@ -297,14 +297,16 @@ export default {
     justify-content: center;
 
     button {
-      padding: 11px 20px;
-      background: black !important;
-      width: 50%;
+      padding: 20px 0px !important;
+      background: rgb(22, 22, 22) !important;
+      width: 24%;
       color: white;
       font-size: 14px;
       font-weight: bold;
       letter-spacing: 0.8px;
       transition: all 0.3s;
+      font-family: "Assistant" !important;
+      text-transform: capitalize;
 
       &:hover {
         background: rgb(150, 148, 148) !important;
