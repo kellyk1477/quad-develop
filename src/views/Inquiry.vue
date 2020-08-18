@@ -1,6 +1,6 @@
 <template>
   <div class="inquiry">
-    <v-form v-model="valid" ref="form" class="inquiry-container">
+    <v-form v-model="valid" ref="form" class="inquiry-container" action="https://formspree.io/xzbjqzpr" method="POST" >
       <v-container class="inquiry-inner-container">
         <h1 class="inquiry-title">Submit an inquiry</h1>
 
@@ -9,6 +9,7 @@
             <v-text-field
               label="Company Name"
               v-model="companyName"
+              name="companyName"
               required
             ></v-text-field>
           </div>
@@ -16,6 +17,7 @@
             <v-text-field
               label="Country"
               v-model="country"
+                name="country"
             ></v-text-field>
           </div>
         </div>
@@ -25,6 +27,7 @@
               v-model="email"
               :rules="emailRules"
               label="E-mail"
+              name="email"
               required
             ></v-text-field>
           </div>
@@ -34,6 +37,7 @@
               v-model="phone"
               :rules="phoneRules"
               label="Phone Number"
+              name="phone"
               required
             ></v-text-field>
           </div>
@@ -44,12 +48,14 @@
             <v-text-field
               label="Payment Term"
               v-model="paymentTerm"
+              name="paymentTerm"
             ></v-text-field>
           </div>
           <div class="right-container">
             <v-text-field
               label="Shipment Term"
               v-model="shipmentTerm"
+              name="shipmentTerm"
             ></v-text-field>
           </div>
         </div>
@@ -59,12 +65,14 @@
             <v-text-field
               label="Quantity"
               v-model="quantity"
+              name="quantity"
             ></v-text-field>
           </div>
           <div class="right-container">
             <v-text-field
               label="Price Target"
               v-model="priceTarget"
+              name="priceTarget"
             ></v-text-field>
           </div>
         </div>
@@ -80,23 +88,26 @@
               label="Buyer"
               value="buyer"
               class="checkbox-item"
+              name="position"
             ></v-checkbox>
             <v-checkbox
               v-model="checkbox"
               label="Buyer's Mandate"
               value="buyersMandate"
               class="checkbox-item"
+              name="position"
             ></v-checkbox>
             <v-checkbox
               v-model="checkbox"
               label="Broker"
               value="broker"
+              name="position"
             ></v-checkbox>
           </div>
         </div>
 
         <div class="submit-button-container">
-          <button @click.prevent="submit">Submit Inquiry</button>
+          <button type="submit">Submit Inquiry</button>
         </div>
       </v-container>
     </v-form>
@@ -164,6 +175,7 @@ export default {
       }
     },
     submit : function() {
+      console.log('hello')
       var templateParams = {
           companyName: this.companyName,
           country: this.country,
