@@ -35,7 +35,6 @@
           </div>
           <div class="right-container">
             <v-text-field
-              type="number"
               v-model="phone"
               :rules="phoneRules"
               label="Phone Number"
