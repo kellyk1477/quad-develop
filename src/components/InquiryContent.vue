@@ -247,7 +247,7 @@ export default {
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin-top: 57px;
+    margin-top: 100px;
   }
 
   .inquiry-title {
