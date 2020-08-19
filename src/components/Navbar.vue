@@ -75,6 +75,7 @@ h1 {
     top: 0px;
     text-align: center;
     transition: 0.5s;
+    z-index: 1;
 
     background: white;
     display: flex;
