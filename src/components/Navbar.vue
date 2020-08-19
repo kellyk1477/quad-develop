@@ -1,7 +1,8 @@
 <template>
     <nav id="navigation">
         <h1><a href="/">Quadstone Global</a></h1>
-        <ul>
+        <div v-if="showMenuIcon"><li><a href="/inquiry">Inquiries</a></li></div>
+        <ul v-else>
            <li><a href="/">Home</a></li>
            <li>About</li>
            <li>Contact Us</li>
@@ -13,8 +14,16 @@
 <script>
 export default {
   name: 'Navbar',
+  data: () => ({
+      showMenuIcon: false
+  }),
   mounted() {
-    this.addScrollListener()
+    // this.addScrollListener()
+    this.onWindowResize()
+    window.addEventListener("resize", this.onWindowResize);
+  },
+  destroyed() {
+    window.removeEventListener("resize", this.onWindowResize);
   },
   methods: {
     addScrollListener() {
@@ -30,6 +39,13 @@ export default {
           nav.style.borderBottomStyle = "none"
         }
       }
+    },
+    onWindowResize() {
+        if (window.innerWidth < 820) {
+            this.showMenuIcon = true
+        } else {
+            this.showMenuIcon = false
+        }
     }
   },
 };
@@ -60,9 +76,11 @@ h1 {
     text-align: center;
     transition: 0.5s;
 
+    background: white;
     display: flex;
     justify-content: space-between;
-    color: white;
+    color: black;
+    border-bottom: 1px solid rgb(228, 222, 222);
 
     li {
       cursor: pointer;

@@ -1,17 +1,14 @@
 <template>
     <div class="about-section">
-<!--         
+        
         <div class="about-container">
             <div class="about-content-container">
                 <div class="about-content">
                     <div></div>
                     <h1>About Us</h1>
                     <p>
-                        JJSC Global Inc. d/b/a Quadstone Global is an international consulting firm founded by Justin Constantatos, Caesar Ho, Judy Ku and Susan Shin,
-                        whose collective experiences serve clients all over world in various aspects related to Personal Protective Equipment (“PPE”). Although Quadstone 
-                        Global advises on comprehensive PPE sourcing, procurement and acquisitions, it specializes in protective gloves for industrial and medical use.
-                        Quadstone focuses on the following main aspects as it pertains to gloves: 1) sourcing and procurement of existing inventory/OTG; 2) sustainable
-                        production contracts; and 3) proprietary, direct product sales OTG.
+                        JJSC Global Inc. d/b/a Quadstone Global is an international sourcing and consulting firm founded by Justin Constantatos, Caesar Ho, Judy Ku and Susan Shin, whose collective experiences serve clients all over world in various aspects related to Personal Protective Equipment (“PPE”).   Although Quadstone Global advises on comprehensive PPE sourcing, procurement and acquisitions generally, it specializes in protective gloves for industrial and medical use.  Quadstone focuses on the following main aspects: 1) sourcing and procurement of existing inventory/OTG; and 2) sustainable production contracts.
+                        Recognizing the need for a trusted, reliable and cost efficient source for much needed PPE such as gloves, JJSC Global has developed its own vertical supply chain,  working in partnership or close cooperation with factories and local stakeholders throughout Southeast Asia.
                     </p>
                     <button><a href="./jjsc-guideline-final.pdf" target="_blank">Financing | Prices</a></button>
                 </div>
@@ -19,8 +16,8 @@
             <div class="about-image">
                 <div class="image"></div>
             </div>
-        </div> -->
-
+        </div>
+<!-- 
         <div class="about-container-two">
             <div class="about-content">
                 <h1>About Us</h1>
@@ -33,7 +30,7 @@
                 </p>
                 <button><a href="./jjsc-guideline-final.pdf" target="_blank">Financing | Prices</a></button>
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -68,7 +65,7 @@ button {
 
 .about-section {
     width: 100%;
-    height: 76vh;
+    height: 90vh;
     display: flex;
     flex-direction: column;
 }
@@ -125,7 +122,7 @@ button {
     font-family: "Assistant";
 
     div {
-        flex: 1;
+        flex: 0.8;
         height: 100%; 
         margin: auto;
         // background: rgb(191, 236, 154);
@@ -133,14 +130,16 @@ button {
 
     .about-content-container {
         height: fit-content;
+        flex: 1;
         // background: orange;
 
         .about-content {
             // margin-right: 20px;
             // padding: 0px 180px 0px 160px;
-            width: 76%;
-            margin-right: 10px;
-            padding-right: 20%;
+            width: 71%;
+            width: 600px;
+            margin-right: 0px;
+            padding-right: 6%;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -158,8 +157,10 @@ button {
     .about-image {
 
         .image {
-            width: 76%;
-            margin-right: 10px;
+            width: 70%;
+            // width: 490px;
+            max-width: 490px;
+            // min-width: 400px;
             border: 1px solid black;
             // background: red;
         }
@@ -173,5 +174,58 @@ button {
         height: 90vh;
     }
 }
+
+@media (max-width: 1240px) {
+
+    .about-container {
+       flex-direction: column;
+
+       .about-content-container {
+           margin-bottom: 40px;
+
+            .about-content {
+                margin: auto;
+                width: 90%;
+                padding-right: 0px;
+
+            }
+       }
+
+       .about-image {
+            width: 100%;
+
+           .image {
+                width: 90%;
+                max-width: none;
+           }
+       }
+
+    }
+}
+
+@media (max-width: 820px) {
+
+    h1 {
+        font-size: 40px;
+        margin-bottom: 24px;
+    }
+
+    .about-container {
+       .about-content-container {
+            .about-content {
+                width: 100%;
+            }
+       }
+
+       .about-image {
+           .image {
+                width: 100%;
+                min-width: none !important;
+           }
+       }
+    }
+}
+
+
 
 </style>

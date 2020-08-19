@@ -15,7 +15,7 @@
         </div>
         <div class="contact-address">
             <h1>Address</h1>
-            <p>TrueCare, LLC <br /> 53-594 Kamehameha Hwy <br /> Hauula, HI 96717</p>
+            <p>JJSC Global Inc.<br />Quadstone Global<br />318 N Carson St. STE 208<br />Carson City, NV 89701</p>
         </div>
       </div>
       <div class="company-name">
