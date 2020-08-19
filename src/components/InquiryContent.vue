@@ -365,4 +365,18 @@ export default {
     appearance: none;
     margin: 0;
   }
+
+
+  @media (max-width: 600px) {
+
+    .form-line {
+      flex-direction: column;
+
+      .left-container, .right-container {
+        width: 100%;
+        margin-right: 0px;
+      }
+    }
+
+  } 
 </style>
