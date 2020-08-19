@@ -1,7 +1,13 @@
 <template>
   <div class="inquiry">
-    <div v-if="success" class="submission-result">Thank you for your submission!</div>
-    <div v-if="failed" class="submission-result red">Sorry, please try again</div>
+
+    <transition name="fade">
+      <div v-if="success" class="submission-result">Thank you for your submission!</div>
+    </transition>
+    <transition name="fade">
+      <div v-if="failed" class="submission-result red">Sorry, please try again</div>
+    </transition>
+
     <v-form v-model="valid" ref="form" class="inquiry-container" action="https://formspree.io/xzbjqzpr" method="POST">
       <v-container class="inquiry-inner-container">
         <h1 class="inquiry-title">Submit an inquiry</h1>
@@ -9,11 +15,30 @@
         <div class="form-line">
           <div class="left-container">
             <v-text-field
+              v-model="firstName"
+              :rules="[v => !!v || 'First Name is required']"
+              label="First Name"
+              name="firstName"
+              required
+            ></v-text-field>
+          </div>
+          <div class="right-container">
+            <v-text-field
+              v-model="lastName"
+              :rules="[v => !!v || 'Last Name is required']"
+              label="Last Name"
+              name="lastName"
+              required
+            ></v-text-field>
+          </div>
+        </div>
+
+        <div class="form-line">
+          <div class="left-container">
+            <v-text-field
               label="Company Name"
               v-model="companyName"
               name="companyName"
-              :rules="[v => !!v || 'Company Name is required']"
-              required
             ></v-text-field>
           </div>
           <div class="right-container">
@@ -24,6 +49,7 @@
             ></v-text-field>
           </div>
         </div>
+
         <div class="form-line">
           <div class="left-container">
             <v-text-field
@@ -102,9 +128,9 @@
             ></v-radio>
             <v-radio
               key="3"
-              label="Broker"
-              value="broker"
-              name="broker"
+              label="Intermediary / Consultant"
+              value="intermediary|Consultant"
+              name="intermediary|Consultant"
             ></v-radio>
           </v-radio-group>
         </div>
@@ -136,6 +162,8 @@ export default {
   },
   data: () => ({
     valid: false,
+    firstName: "",
+    lastName: "",
     email: "",
     emailRules: [
       v => !!v || "E-mail is required",
@@ -197,19 +225,18 @@ export default {
           priceTarget: this.priceTarget,
           comments: this.comments,
       }
-      var self = this
       emailjs.send('default_service', 'template_eFtx741h', templateParams, 'user_YxJ7rIxrLI2oK3z1cGPMO')
           .then((response) => {
             this.clear();
-            self.success = true
+            this.success = true
             setTimeout(() => {
-              self.success = false
+              this.success = false
             }, 5000);
             console.log('SUCCESS!', response.status, response.text)
           }, function(error) {
-            self.failed = true
+            this.failed = true
             setTimeout(() => {
-              self.failed = false
+              this.failed = false
             }, 5000);
             console.log('FAILED...', error)
           })
@@ -237,7 +264,14 @@ export default {
     font-size: 16px;
   }
 
-   ::v-deep .submission-result.red {
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
+  }
+
+  ::v-deep .submission-result.red {
     background-color: rgba(197, 92, 92, 0.884) !important;
   }
 

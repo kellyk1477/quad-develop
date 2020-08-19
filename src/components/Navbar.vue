@@ -59,6 +59,7 @@ h1 {
     top: 0px;
     text-align: center;
     transition: 0.5s;
+    z-index: 1;
 
     display: flex;
     justify-content: space-between;
