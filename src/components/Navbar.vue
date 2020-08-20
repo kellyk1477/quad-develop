@@ -4,9 +4,7 @@
 
         <dropdown v-if="showMenuIcon" />
         <ul v-else >
-            <li v-for="(item, viz) in navList" :key="viz">
-                <a :href="item.link" class="nav-link" @click="scrollToSection" >{{ item.linkName }}</a>
-            </li>
+            <a v-for="(item, viz) in navList" :key="viz" :href="item.link" class="nav-link" @click="scrollToSection" >{{ item.linkName }}</a>
         </ul>
     </nav>
 </template>
@@ -146,7 +144,7 @@ h1 {
     color: black;
     border-bottom: 1px solid rgb(228, 222, 222);
 
-    li {
+    a.nav-link {
       cursor: pointer;
       font-size: 13px;
       font-family: "Assistant";
@@ -158,14 +156,11 @@ h1 {
       padding: 8px 25px;
       border-radius: 8px;
       transition: 1.3s;
+      color: inherit;
 
       &:hover {
         font-weight: 500;
         background: rgba(211, 209, 209, 0.452);
-      }
-
-      a.nav-link {
-          color: inherit;
       }
     }
 }

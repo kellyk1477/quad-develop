@@ -46,8 +46,8 @@ export default {
 }
 
 .menu-icon-wrap, .menu-icon {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
     cursor: pointer;
 }
 
