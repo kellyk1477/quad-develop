@@ -1,26 +1,67 @@
 <template>
     <nav id="navigation">
         <h1><a href="/">Quadstone Global</a></h1>
-        <div v-if="showMenuIcon"><li><a href="/inquiry">Inquiries</a></li></div>
-        <ul v-else>
-           <li><a href="/">Home</a></li>
-           <li>About</li>
-           <li>Contact Us</li>
-           <li><a href="/inquiry">Inquiries</a></li>
+        <dropdown v-if="showMenuIcon" />
+        <ul v-else >
+            <li v-for="(item, viz) in navList" :key="viz">
+                <a :href="item.link" @click="scrollToSection" >{{ item.linkName }}</a>
+            </li>
         </ul>
     </nav>
 </template>
 
 <script>
+import $ from 'jquery'
+import Dropdown from './Dropdown.vue'
+import MenuIcon from '../assets/images/menu-icon.png'
+
+const NavItems = {
+    home: {
+        linkName: "Home",
+        link: "#home"
+    },
+    about: {
+        linkName: "About",
+        link: "#about"
+    },
+    contact: {
+        linkName: "Contact",
+        link: "#contact"
+    },
+    inquiry: {
+        linkName: "Inquiries",
+        link: "/inquiry"
+    },
+}
+
+const InquiryNavItem = {
+    home: {
+        linkName: "Home",
+        link: "/"
+    },
+}
+
 export default {
   name: 'Navbar',
+  components: {
+      Dropdown
+  },
   data: () => ({
-      showMenuIcon: false
+      showMenuIcon: false,
+      menuIcon: MenuIcon,
+      navItems: NavItems,
+      inquiryNavItem: InquiryNavItem,
+      navList: null
   }),
   mounted() {
-    // this.addScrollListener()
     this.onWindowResize()
     window.addEventListener("resize", this.onWindowResize);
+
+    if (window.location.href.includes("/inquiry")) {
+        this.navList = this.inquiryNavItem
+    } else {
+        this.navList = this.navItems
+    }
   },
   destroyed() {
     window.removeEventListener("resize", this.onWindowResize);
@@ -39,6 +80,27 @@ export default {
           nav.style.borderBottomStyle = "none"
         }
       }
+    },
+    scrollToSection(e) {
+        const linkHash = e.target.hash
+
+        if (linkHash !== '' && window.innerWidth < 1240) {
+            e.preventDefault()
+            $('html, body').animate(
+                {
+                    scrollTop: $(linkHash).offset().top - 50,
+                },
+                800,
+            )
+        } else if (linkHash !== '') {
+            e.preventDefault()
+            $('html, body').animate(
+                {
+                    scrollTop: $(linkHash).offset().top - 100,
+                },
+                800,
+            )
+        }
     },
     onWindowResize() {
         if (window.innerWidth < 820) {
@@ -103,6 +165,19 @@ h1 {
       a {
         color: inherit;
       }
+    }
+}
+
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 20px;
+    }
+
+    nav {
+        padding: 11px 17px;
+        display: flex;
+        align-items: center;
     }
 }
 </style>

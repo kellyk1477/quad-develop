@@ -1,5 +1,5 @@
 <template>
-    <div class="about-section">
+    <div id="about" class="about-section">
         
         <div class="about-container">
             <div class="about-content-container">
@@ -14,7 +14,9 @@
                 </div>
             </div>
             <div class="about-image">
-                <div class="image"></div>
+                <div class="image">
+                    <img src="../assets/images/working.png" alt="">
+                </div>
             </div>
         </div>
 <!-- 
@@ -68,6 +70,7 @@ button {
     height: 90vh;
     display: flex;
     flex-direction: column;
+    margin: 60px 0px;
 }
 
 .about-container-two {
@@ -143,8 +146,6 @@ button {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            // background: rgb(223, 223, 150);
-            // border: 1px solid black;
 
             p {
                 font-size: 16px;
@@ -155,14 +156,17 @@ button {
     }
 
     .about-image {
+        overflow: hidden;
 
         .image {
             width: 70%;
-            // width: 490px;
             max-width: 490px;
-            // min-width: 400px;
-            border: 1px solid black;
-            // background: red;
+            // border: 1px solid black;
+
+            img {
+                width: 100%;
+                height: 750px;
+            }
         }
 
     }
@@ -179,6 +183,7 @@ button {
 
     .about-container {
        flex-direction: column;
+       padding: 0px;
 
        .about-content-container {
            margin-bottom: 40px;
@@ -197,6 +202,12 @@ button {
            .image {
                 width: 90%;
                 max-width: none;
+                position: relative;
+
+                img {
+                    position: absolute;
+                    top: -63%;
+                }
            }
        }
 

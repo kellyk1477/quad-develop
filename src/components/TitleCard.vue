@@ -1,5 +1,5 @@
 <template>
-  <div class="landing-with-nav">
+  <div id="home" class="landing-with-nav">
   </div>
 </template>
 
