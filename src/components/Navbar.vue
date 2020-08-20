@@ -5,7 +5,7 @@
         <dropdown v-if="showMenuIcon" />
         <ul v-else >
             <li v-for="(item, viz) in navList" :key="viz">
-                <a :href="item.link" @click="scrollToSection" >{{ item.linkName }}</a>
+                <a :href="item.link" class="nav-link" @click="scrollToSection" >{{ item.linkName }}</a>
             </li>
         </ul>
     </nav>
@@ -155,16 +155,17 @@ h1 {
       list-style-type: none;
       text-transform: uppercase;
       display: inline-block;
-      padding: 8px 29px;
+      padding: 8px 25px;
       border-radius: 8px;
       transition: 1.3s;
 
       &:hover {
-        background: rgba(163, 162, 162, 0.459);
+        font-weight: 500;
+        background: rgba(211, 209, 209, 0.452);
       }
 
-      a {
-        color: inherit;
+      a.nav-link {
+          color: inherit;
       }
     }
 }
