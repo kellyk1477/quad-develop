@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="dropdown-container">
         <div :class="{ 'dropdown-backdrop': isOpen }" @click="openMenu">
             <div class="menu-icon-wrap"  @click="openMenu" >
-                <img :src="menuIcon" alt="Menu" class="menu-icon">
+                <img src="../assets/images/menuIcon.png" alt="Menu" class="menu-icon">
             </div>
         </div>
         <transition name="dropdown" appear>
@@ -20,7 +20,7 @@
 
 <script>
 import $ from 'jquery'
-import MenuIcon from '../assets/images/menu-icon.png'
+import MenuIcon from '../assets/images/working.png'
 
 export default {
     name: 'Dropdown',
@@ -40,9 +40,14 @@ export default {
 
 <style lang="scss" scoped>
 
+.dropdown-container {
+  display: flex;
+  align-items: center;
+}
+
 .menu-icon-wrap, .menu-icon {
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
 }
 

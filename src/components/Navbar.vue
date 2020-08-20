@@ -1,6 +1,7 @@
 <template>
     <nav id="navigation">
         <h1><a href="/">Quadstone Global</a></h1>
+
         <dropdown v-if="showMenuIcon" />
         <ul v-else >
             <li v-for="(item, viz) in navList" :key="viz">
@@ -13,7 +14,7 @@
 <script>
 import $ from 'jquery'
 import Dropdown from './Dropdown.vue'
-import MenuIcon from '../assets/images/menu-icon.png'
+import MenuIcon from '../assets/images/menuIcon.png'
 
 const NavItems = {
     home: {
