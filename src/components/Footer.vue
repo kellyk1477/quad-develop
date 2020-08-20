@@ -136,7 +136,7 @@ a {
     }
 }
 
-@media (max-width: 740px) {
+@media (max-width: 1020px) {
 
     .contact-info {
         margin-bottom: 20px;
