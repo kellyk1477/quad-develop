@@ -10,7 +10,7 @@
                         JJSC Global Inc. d/b/a Quadstone Global is an international sourcing and consulting firm founded by Justin Constantatos, Caesar Ho, Judy Ku and Susan Shin, whose collective experiences serve clients all over world in various aspects related to Personal Protective Equipment (“PPE”).   Although Quadstone Global advises on comprehensive PPE sourcing, procurement and acquisitions generally, it specializes in protective gloves for industrial and medical use.  Quadstone focuses on the following main aspects: 1) sourcing and procurement of existing inventory/OTG; and 2) sustainable production contracts.
                         Recognizing the need for a trusted, reliable and cost efficient source for much needed PPE such as gloves, JJSC Global has developed its own vertical supply chain,  working in partnership or close cooperation with factories and local stakeholders throughout Southeast Asia.
                     </p>
-                    <button><a href="./jjsc-guideline-final.pdf" target="_blank">Financing | Prices</a></button>
+                    <!-- <button><a href="./jjsc-guideline-final.pdf" target="_blank">Financing | Prices</a></button> -->
                 </div>
             </div>
             <div class="about-image">
