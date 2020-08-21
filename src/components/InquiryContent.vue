@@ -225,7 +225,8 @@ export default {
           priceTarget: this.priceTarget,
           comments: this.comments,
       }
-      emailjs.send('default_service', 'template_eFtx741h', templateParams, 'user_YxJ7rIxrLI2oK3z1cGPMO')
+
+      emailjs.send('default_service', 'template_eFtx741h', templateParams, process.env.VUE_APP_EMAILJS_API_KEY)
           .then((response) => {
             this.clear();
             this.success = true
@@ -378,5 +379,5 @@ export default {
       }
     }
 
-  } 
+  }
 </style>
