@@ -111,11 +111,7 @@
           <div class="checkbox-title">
             Position
           </div>
-<<<<<<< HEAD
-          <v-radio-group v-model="position" row class="radio-input-container">
-=======
           <v-radio-group v-model="position" :row="!this.isMobile">
->>>>>>> 153e61d2626302da9ec99260a28eff3b8715330f
             <v-radio
               key="1"
               label="Buyer"
@@ -384,19 +380,6 @@ export default {
 
     .inquiry-container {
       padding: 0px 8px;
-
-      .radio-input-container {
-        flex-direction: column;
-        background: blue;
-        padding-left: 30px;
-      }
-    }
-
-    .checkbox-container {
-      .checkbox-item {
-        background: red;
-        color: pink;
-      }
     }
 
     .form-line {
