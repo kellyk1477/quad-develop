@@ -111,7 +111,11 @@
           <div class="checkbox-title">
             Position
           </div>
+<<<<<<< HEAD
           <v-radio-group v-model="position" row class="radio-input-container">
+=======
+          <v-radio-group v-model="position" :row="!this.isMobile">
+>>>>>>> 153e61d2626302da9ec99260a28eff3b8715330f
             <v-radio
               key="1"
               label="Buyer"
@@ -161,6 +165,7 @@ export default {
     this.addResizeListener();
   },
   data: () => ({
+    isMobile: false,
     valid: false,
     firstName: "",
     lastName: "",
@@ -187,17 +192,20 @@ export default {
   }),
   methods: {
     styleElements : function (inquiryContainer) {
-      if(window.innerWidth < 500) {
+      if(window.innerWidth < 600) {
         inquiryContainer.style.width = "100%";
         inquiryContainer.style.border = "none";
+        this.isMobile = true;
       }
       else if (window.innerWidth < 1000) {
         inquiryContainer.style.width = "90%";
         inquiryContainer.style.border = "1px solid rgb(190, 188, 188)";
+        this.isMobile = false;
       }
       else {
         inquiryContainer.style.width = "60%";
         inquiryContainer.style.border = "1px solid rgb(190, 188, 188)";
+        this.isMobile = false;
       }
     },
     addResizeListener : function () {
@@ -225,7 +233,8 @@ export default {
           priceTarget: this.priceTarget,
           comments: this.comments,
       }
-      emailjs.send('default_service', 'template_eFtx741h', templateParams, 'user_YxJ7rIxrLI2oK3z1cGPMO')
+
+      emailjs.send('default_service', 'template_eFtx741h', templateParams, process.env.VUE_APP_EMAILJS_API_KEY)
           .then((response) => {
             this.clear();
             this.success = true
@@ -333,6 +342,10 @@ export default {
     .checkbox-item {
       margin-right: 20px;
     }
+
+    ::v-deep .v-icon {
+      font-size: 18px;
+    }
   }
 
   .submit-button-container {
@@ -343,7 +356,7 @@ export default {
       padding: 20px 0px !important;
       background: rgb(22, 22, 22) !important;
       width: 24%;
-      min-width: 110px !important;
+      min-width: 180px !important;
       color: white;
       font-size: 14px;
       font-weight: bold;
@@ -395,5 +408,9 @@ export default {
       }
     }
 
-  } 
+    ::v-deep .v-icon {
+      font-size: 14px !important;
+    }
+
+  }
 </style>
