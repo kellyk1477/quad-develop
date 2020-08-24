@@ -1,6 +1,6 @@
 <template>
     <nav id="navigation">
-        <h1><a href="/">Quadstone Global</a></h1>
+        <a href="/"><h1>Quadstone Global</h1></a>
         <ul >
             <a href="/" class="nav-link">Home</a>
         </ul>
@@ -66,4 +66,24 @@ h1 {
     }
 }
 
+
+@media (max-width: 620px) {
+
+    a {
+        display: flex;
+        align-items: center;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    nav {
+       padding: 11px 17px;
+
+       a.nav-link {
+           padding-right: 0px;
+       }
+    }
+}
 </style>
