@@ -166,6 +166,7 @@ button {
             img {
                 width: 100%;
                 height: 750px;
+                min-width: 420px;
             }
         }
 
@@ -175,7 +176,25 @@ button {
 
 @media (max-width: 740px) {
     .about-section {
-        height: 90vh;
+        height: unset;
+
+        .about-container {
+            height: unset;
+
+            .about-image {
+                min-height: 280px;
+                // max-height: 315px;
+                max-height: 450px;
+                // min height not being applied unless height val is set below min height
+                // height: 150px;
+
+                .image img {
+                    position: static;
+                    height: unset;
+                }
+                
+            }
+        }
     }
 }
 
